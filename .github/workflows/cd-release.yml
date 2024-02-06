@@ -18,5 +18,5 @@ jobs:
           NETLIFY_DEPLOY_MESSAGE: 'Prod deploy v${{ github.ref }}'
           NETLIFY_DEPLOY_TO_PROD: true
           install_command: echo Skipping installing the dependencies
-          build_command: pnpm build
-          build_directory: /
+          build_command: echo Skipping building the web files
+          build_directory: echo Skipping building the directory

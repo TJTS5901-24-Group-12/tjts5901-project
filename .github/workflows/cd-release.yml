@@ -1,12 +1,12 @@
-name: 'Netlify deploy on release'
+name: Netlify deploy on release
 
 on:
   release:
-    types: ['published']
+    types: [published]
 
 jobs:
   deploy:
-    name: 'Deploy'
+    name: Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -15,5 +15,5 @@ jobs:
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+          NETLIFY_DEPLOY_MESSAGE: 'Prod deploy v${{ github.ref }}'
           NETLIFY_DEPLOY_TO_PROD: true

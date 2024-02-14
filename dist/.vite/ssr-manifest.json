@@ -4,7 +4,7 @@
   "\u0000commonjsHelpers.js": [
   ],
   "\u0000plugin-vue:export-helper": [
-    "/assets/_plugin-vue_export-helper-0cONlelT.js"
+    "/assets/_plugin-vue_export-helper-x3n3nnut.js"
   ],
   "\u0000virtual:generated-layouts": [
   ],
@@ -13,12 +13,12 @@
   "\u0000vite/preload-helper.js": [
   ],
   "../../../@vite-plugin-pwa/virtual:pwa-register": [
-    "/assets/virtual_pwa-register--xMaYviE.js"
+    "/assets/virtual_pwa-register-OSH1IIxX.js"
   ],
   "../../../__uno.css": [
   ],
   "../../../vue-macros/define-models/use-vmodel": [
-    "/assets/index-qPqBVkv6.js"
+    "/assets/index-Wh1tJsoW.js"
   ],
   "assets/app-!~{001}~.js-unocss-hash.css": [
   ],
@@ -31,7 +31,7 @@
     "/assets/de-mAx57v4u.js"
   ],
   "locales/en.yml": [
-    "/assets/en-w5UaB4w8.js"
+    "/assets/en-3bm_TbHj.js"
   ],
   "locales/es.yml": [
     "/assets/es-Dciq5JJo.js"
@@ -131,25 +131,22 @@
   ],
   "src/App.vue?vue&type=script&setup=true&lang.ts": [
   ],
-  "src/components/TheFooter.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_plugin-vue_export-helper-0cONlelT.js"
-  ],
   "src/components/TheInput.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index-qPqBVkv6.js"
+    "/assets/index-Wh1tJsoW.js"
   ],
   "src/composables/dark.ts": [
   ],
   "src/layouts/404.vue": [
-    "/assets/404-graVd9mI.js"
+    "/assets/404-im-oQmnf.js"
   ],
   "src/layouts/404.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/404-graVd9mI.js"
+    "/assets/404-im-oQmnf.js"
   ],
   "src/layouts/default.vue": [
-    "/assets/default-nyyeW51G.js"
+    "/assets/default-3ytgtale.js"
   ],
   "src/layouts/home.vue": [
-    "/assets/home-s0Jlvl3E.js"
+    "/assets/home-QKqYxPRR.js"
   ],
   "src/main.ts": [
   ],
@@ -162,31 +159,31 @@
   "src/modules/pwa.ts": [
   ],
   "src/pages/README.md": [
-    "/assets/README-0__u2IFF.js"
+    "/assets/README-8NriKZKw.js"
   ],
   "src/pages/[...all].vue": [
-    "/assets/_...all_-2060nbqk.js"
+    "/assets/_...all_-ct7-n-WN.js"
   ],
   "src/pages/[...all].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_...all_-2060nbqk.js"
+    "/assets/_...all_-ct7-n-WN.js"
   ],
   "src/pages/about.md": [
-    "/assets/about-1TfcCq8-.js"
+    "/assets/about-jn7cxcwE.js"
   ],
   "src/pages/hi/[name].vue": [
-    "/assets/_name_-acOb41w0.js"
+    "/assets/_name_-v7lm6CYO.js"
   ],
   "src/pages/hi/[name].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_name_-acOb41w0.js"
+    "/assets/_name_-v7lm6CYO.js"
   ],
   "src/pages/index.vue": [
-    "/assets/index-qPqBVkv6.js"
+    "/assets/index-Wh1tJsoW.js"
   ],
   "src/pages/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index-qPqBVkv6.js"
+    "/assets/index-Wh1tJsoW.js"
   ],
   "src/stores/user.ts": [
-    "/assets/user-How-uFhE.js"
+    "/assets/user-utWsmDnM.js"
   ],
   "src/styles/main.css": [
   ],

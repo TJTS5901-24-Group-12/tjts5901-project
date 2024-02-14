@@ -1,14 +1,10 @@
 button:
-  about: About
-  back: Back
-  go: GO
-  home: Home
-  toggle_dark: Toggle dark mode
-  toggle_langs: Change languages
+  bid: Bid
+  offer: Offer
+  cancel: Cancel
+  confirm: Confirm
 intro:
-  desc: Opinionated Vite Starter Template
-  dynamic-route: Demo of dynamic route
-  hi: Hi, {name}!
-  aka: Also known as
-  whats-your-name: What's your name?
+  desc: Place buy or sell orders on Apple (AAPL)
+  amount: Amount
+  price: Price
 not-found: Not found

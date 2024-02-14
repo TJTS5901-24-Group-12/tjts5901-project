@@ -98,6 +98,7 @@ function cancel() {
         style="width: 15%"
         m-3 text-sm btn-default
         :disabled="!price && !amount"
+        data-test-id="confirm-button"
       >
         {{ t('button.confirm') }}
       </button>

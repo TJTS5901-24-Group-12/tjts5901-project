@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import app from '../server/app'
 
 interface TransactionData {
@@ -7,45 +8,42 @@ interface TransactionData {
   price: number
 }
 
-defineComponent({
-  data(): { amount: number, price: number, bid: boolean, offer: boolean, bids: TransactionData[], offers: TransactionData[] } {
-    return {
-      amount: 0,
-      price: 0,
-      bid: true,
-      offer: false,
-      bids: [],
-      offers: [],
-    }
-  },
-  methods: {
-    async validate(): Promise<boolean> {
-      if (this.amount > 0 && this.price > 0)
-        return await app.validateTransaction(this.amount, this.price)
-      return false
-    },
-    async submit(): Promise<void> {
-      if (await this.validate()) {
-        this.bid
-          ? app.submitTransaction(this.amount, this.price, this.bids)
-          : app.submitTransaction(this.amount, this.price, this.offers)
-      }
-    },
-    cancel(): void {
-      this.amount = 0
-      this.price = 0
-      this.isBid()
-    },
-    isBid(): void {
-      this.bid = true
-      this.offer = false
-    },
-    isOffer(): void {
-      this.offer = true
-      this.bid = false
-    },
-  },
-})
+const amount = ref(0)
+const price = ref(0)
+const bid = ref(true)
+const offer = ref(false)
+const bids = ref<TransactionData[]>([])
+const offers = ref<TransactionData[]>([])
+
+async function validate(): Promise<boolean> {
+  if (amount.value > 0 && price.value > 0)
+    return await app.validateTransaction(amount.value, price.value)
+  return false
+}
+
+async function submit(): Promise<void> {
+  if (await validate()) {
+    bid.value
+      ? app.submitTransaction(amount.value, price.value, bids.value)
+      : app.submitTransaction(amount.value, price.value, offers.value)
+  }
+}
+
+function cancel(): void {
+  amount.value = 0
+  price.value = 0
+  isBid()
+}
+
+function isBid(): void {
+  bid.value = true
+  offer.value = false
+}
+
+function isOffer(): void {
+  offer.value = true
+  bid.value = false
+}
 
 const { t } = useI18n()
 </script>
@@ -73,11 +71,11 @@ const { t } = useI18n()
     </p>
 
     <div>
-      <button style="width: 15%" m-3 text-sm bid-btn @click="isBid()">
+      <button style="width: 15%" m-3 text-sm bid-btn @click="isBid">
         {{ t('button.bid') }}
       </button>
 
-      <button style="width: 15%" m-3 text-sm offer-btn @click="isOffer()">
+      <button style="width: 15%" m-3 text-sm offer-btn @click="isOffer">
         {{ t('button.offer') }}
       </button>
     </div>
@@ -108,13 +106,13 @@ const { t } = useI18n()
     </fieldset>
 
     <div>
-      <button style="width: 15%" m-3 text-sm btn-default @click="cancel()">
+      <button style="width: 15%" m-3 text-sm btn-default @click="cancel">
         {{ t('button.cancel') }}
       </button>
 
       <button
         style="width: 15%" m-3 text-sm btn-default :disabled="!price || !amount" data-test-id="confirm-button"
-        @click="submit()"
+        @click="submit"
       >
         {{ t('button.confirm') }}
       </button>

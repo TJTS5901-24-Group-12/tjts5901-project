@@ -8,7 +8,7 @@
   "\u0000vite/modulepreload-polyfill.js": [],
   "\u0000vite/preload-helper.js": [],
   "../../../@vite-plugin-pwa/virtual:pwa-register": [
-    "/assets/virtual_pwa-register-DBjApOVP.js"
+    "/assets/virtual_pwa-register-wuK_gvGd.js"
   ],
   "../../../__uno.css": [],
   "assets/app-!~{001}~.js-unocss-hash.css": [],
@@ -96,20 +96,20 @@
   ],
   "src/App.vue?vue&type=script&setup=true&lang.ts": [],
   "src/components/PriceLabel.vue": [
-    "/assets/index-B4lJiMSH.js"
+    "/assets/index-DyUd1Mjk.js"
   ],
   "src/composables/dark.ts": [],
   "src/layouts/404.vue": [
-    "/assets/404-DWmjBqgo.js"
+    "/assets/404-5UwZNN9d.js"
   ],
   "src/layouts/404.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/404-DWmjBqgo.js"
+    "/assets/404-5UwZNN9d.js"
   ],
   "src/layouts/default.vue": [
-    "/assets/default-BQcwypgA.js"
+    "/assets/default-D5v9R9_f.js"
   ],
   "src/layouts/home.vue": [
-    "/assets/home-D71Ix3XW.js"
+    "/assets/home-BPArH1j5.js"
   ],
   "src/main.ts": [],
   "src/modules/i18n.ts": [],
@@ -117,31 +117,31 @@
   "src/modules/pinia.ts": [],
   "src/modules/pwa.ts": [],
   "src/pages/README.md": [
-    "/assets/README-Dp9m1W5o.js"
+    "/assets/README-QsC79vau.js"
   ],
   "src/pages/[...all].vue": [
-    "/assets/_...all_-DcNIpl0o.js"
+    "/assets/_...all_-BoUobt-X.js"
   ],
   "src/pages/[...all].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_...all_-DcNIpl0o.js"
+    "/assets/_...all_-BoUobt-X.js"
   ],
   "src/pages/about.md": [
-    "/assets/about-CwM07JVD.js"
+    "/assets/about-RnRmGR2B.js"
   ],
   "src/pages/hi/[name].vue": [
-    "/assets/_name_-CgsboVVz.js"
+    "/assets/_name_-r4KozgW1.js"
   ],
   "src/pages/hi/[name].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_name_-CgsboVVz.js"
+    "/assets/_name_-r4KozgW1.js"
   ],
   "src/pages/index.vue": [
-    "/assets/index-B4lJiMSH.js"
+    "/assets/index-DyUd1Mjk.js"
   ],
   "src/pages/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index-B4lJiMSH.js"
+    "/assets/index-DyUd1Mjk.js"
   ],
   "src/server/app.ts": [
-    "/assets/index-B4lJiMSH.js"
+    "/assets/index-DyUd1Mjk.js"
   ],
   "src/styles/main.css": [],
   "virtual:/vue-router/auto/route-block": [

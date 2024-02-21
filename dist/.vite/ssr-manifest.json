@@ -1,195 +1,154 @@
 {
-  "\u0000C:/MAISTERI/koodit/tjts5901-project/node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js?commonjs-module": [
-  ],
-  "\u0000commonjsHelpers.js": [
-  ],
+  "\u0000C:/MAISTERI/koodit/tjts5901-project/node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js?commonjs-module": [],
+  "\u0000commonjsHelpers.js": [],
   "\u0000plugin-vue:export-helper": [
-    "/assets/_plugin-vue_export-helper-x3n3nnut.js"
+    "/assets/_plugin-vue_export-helper-DlAUqK2U.js"
   ],
-  "\u0000virtual:generated-layouts": [
-  ],
-  "\u0000vite/modulepreload-polyfill.js": [
-  ],
-  "\u0000vite/preload-helper.js": [
-  ],
+  "\u0000virtual:generated-layouts": [],
+  "\u0000vite/modulepreload-polyfill.js": [],
+  "\u0000vite/preload-helper.js": [],
   "../../../@vite-plugin-pwa/virtual:pwa-register": [
-    "/assets/virtual_pwa-register-OSH1IIxX.js"
+    "/assets/virtual_pwa-register-CFdavnbZ.js"
   ],
-  "../../../__uno.css": [
-  ],
-  "../../../vue-macros/define-models/use-vmodel": [
-    "/assets/index-Wh1tJsoW.js"
-  ],
-  "assets/app-!~{001}~.js-unocss-hash.css": [
-  ],
-  "index.html": [
-  ],
+  "../../../__uno.css": [],
+  "assets/app-!~{001}~.js-unocss-hash.css": [],
+  "index.html": [],
   "locales/ar.yml": [
-    "/assets/ar-n5dVCIPJ.js"
+    "/assets/ar-9Pga1d3t.js"
   ],
   "locales/de.yml": [
-    "/assets/de-mAx57v4u.js"
+    "/assets/de-CQa2zd0B.js"
   ],
   "locales/en.yml": [
-    "/assets/en-3bm_TbHj.js"
+    "/assets/en-C014eCAT.js"
   ],
   "locales/es.yml": [
-    "/assets/es-Dciq5JJo.js"
+    "/assets/es-hloIUyAw.js"
   ],
   "locales/fr.yml": [
-    "/assets/fr-hV4Lomtj.js"
+    "/assets/fr-DAYj2OhX.js"
   ],
   "locales/id.yml": [
-    "/assets/id-88BgvRPm.js"
+    "/assets/id-Cwe0KQuR.js"
   ],
   "locales/it.yml": [
-    "/assets/it-WiKdTlHb.js"
+    "/assets/it-A6E079kC.js"
   ],
   "locales/ja.yml": [
-    "/assets/ja-ZKCul9h9.js"
+    "/assets/ja-Dd_-ynnZ.js"
   ],
   "locales/ka.yml": [
-    "/assets/ka-UQiq7cv6.js"
+    "/assets/ka-DoGpLmrY.js"
   ],
   "locales/ko.yml": [
-    "/assets/ko-tax0o9jk.js"
+    "/assets/ko-B_jMkcWC.js"
   ],
   "locales/pl.yml": [
-    "/assets/pl-n4hK2zGJ.js"
+    "/assets/pl-BscUaaxT.js"
   ],
   "locales/pt-BR.yml": [
-    "/assets/pt-BR-NosZ9XFF.js"
+    "/assets/pt-BR-DFUJcVuz.js"
   ],
   "locales/ru.yml": [
-    "/assets/ru-o04W9fmA.js"
+    "/assets/ru-BpAZjRdm.js"
   ],
   "locales/tr.yml": [
-    "/assets/tr-b3fimDfb.js"
+    "/assets/tr-vqusm-Rn.js"
   ],
   "locales/uk.yml": [
-    "/assets/uk-kpX76xjJ.js"
+    "/assets/uk-BdWyRLvH.js"
   ],
   "locales/uz.yml": [
-    "/assets/uz-vzP9WJJX.js"
+    "/assets/uz-DXWaXLnd.js"
   ],
   "locales/vi.yml": [
-    "/assets/vi-sv5g2MNQ.js"
+    "/assets/vi-BWmt2ZGP.js"
   ],
   "locales/zh-CN.yml": [
-    "/assets/zh-CN-89sVdscY.js"
+    "/assets/zh-CN-CxHQXvmj.js"
   ],
-  "node_modules/.pnpm/@intlify+core-base@9.8.0/node_modules/@intlify/core-base/dist/core-base.mjs": [
-  ],
-  "node_modules/.pnpm/@intlify+message-compiler@9.8.0/node_modules/@intlify/message-compiler/dist/message-compiler.esm-browser.js": [
-  ],
-  "node_modules/.pnpm/@intlify+shared@9.8.0/node_modules/@intlify/shared/dist/shared.mjs": [
-  ],
-  "node_modules/.pnpm/@unhead+dom@1.8.9/node_modules/@unhead/dom/dist/index.mjs": [
-  ],
-  "node_modules/.pnpm/@unhead+shared@1.8.9/node_modules/@unhead/shared/dist/index.mjs": [
-  ],
-  "node_modules/.pnpm/@unhead+vue@1.8.9_vue@3.3.13/node_modules/@unhead/vue/dist/shared/vue.cf295fb1.mjs": [
-  ],
-  "node_modules/.pnpm/@unhead+vue@1.8.9_vue@3.3.13/node_modules/@unhead/vue/dist/shared/vue.f36acd1f.mjs": [
-  ],
-  "node_modules/.pnpm/@unocss+reset@0.58.1/node_modules/@unocss/reset/tailwind.css": [
-  ],
-  "node_modules/.pnpm/@vue+reactivity@3.3.13/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [
-  ],
-  "node_modules/.pnpm/@vue+runtime-core@3.3.13/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [
-  ],
-  "node_modules/.pnpm/@vue+runtime-dom@3.3.13/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [
-  ],
-  "node_modules/.pnpm/@vue+shared@3.3.13/node_modules/@vue/shared/dist/shared.esm-bundler.js": [
-  ],
-  "node_modules/.pnpm/@vueuse+core@10.7.0_vue@3.3.13/node_modules/@vueuse/core/index.mjs": [
-  ],
-  "node_modules/.pnpm/@vueuse+shared@10.7.0_vue@3.3.13/node_modules/@vueuse/shared/index.mjs": [
-  ],
-  "node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs": [
-  ],
-  "node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js": [
-  ],
-  "node_modules/.pnpm/pinia@2.1.7_typescript@5.3.3_vue@3.3.13/node_modules/pinia/dist/pinia.mjs": [
-  ],
-  "node_modules/.pnpm/unhead@1.8.9/node_modules/unhead/dist/index.mjs": [
-  ],
-  "node_modules/.pnpm/vite-ssg@0.23.6_critters@0.0.20_vite@5.0.10_vue-router@4.2.5_vue@3.3.13/node_modules/vite-ssg/dist/index.mjs": [
-  ],
-  "node_modules/.pnpm/vite-ssg@0.23.6_critters@0.0.20_vite@5.0.10_vue-router@4.2.5_vue@3.3.13/node_modules/vite-ssg/dist/shared/vite-ssg.5912142e.mjs": [
-  ],
-  "node_modules/.pnpm/vite-ssg@0.23.6_critters@0.0.20_vite@5.0.10_vue-router@4.2.5_vue@3.3.13/node_modules/vite-ssg/dist/shared/vite-ssg.a009fbf1.mjs": [
-  ],
-  "node_modules/.pnpm/vue-demi@0.14.6_vue@3.3.13/node_modules/vue-demi/lib/index.mjs": [
-  ],
-  "node_modules/.pnpm/vue-i18n@9.8.0_vue@3.3.13/node_modules/vue-i18n/dist/vue-i18n.runtime.mjs": [
-  ],
-  "node_modules/.pnpm/vue-router@4.2.5_vue@3.3.13/node_modules/vue-router/dist/vue-router.mjs": [
-  ],
+  "node_modules/.pnpm/@intlify+core-base@9.9.1/node_modules/@intlify/core-base/dist/core-base.mjs": [],
+  "node_modules/.pnpm/@intlify+message-compiler@9.9.1/node_modules/@intlify/message-compiler/dist/message-compiler.esm-browser.js": [],
+  "node_modules/.pnpm/@intlify+shared@9.9.1/node_modules/@intlify/shared/dist/shared.mjs": [],
+  "node_modules/.pnpm/@unhead+dom@1.8.10/node_modules/@unhead/dom/dist/index.mjs": [],
+  "node_modules/.pnpm/@unhead+shared@1.8.10/node_modules/@unhead/shared/dist/index.mjs": [],
+  "node_modules/.pnpm/@unhead+vue@1.8.10_vue@3.4.19/node_modules/@unhead/vue/dist/shared/vue.cf295fb1.mjs": [],
+  "node_modules/.pnpm/@unhead+vue@1.8.10_vue@3.4.19/node_modules/@unhead/vue/dist/shared/vue.f36acd1f.mjs": [],
+  "node_modules/.pnpm/@unocss+reset@0.58.5/node_modules/@unocss/reset/tailwind.css": [],
+  "node_modules/.pnpm/@vue+reactivity@3.4.19/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [],
+  "node_modules/.pnpm/@vue+runtime-core@3.4.19/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [],
+  "node_modules/.pnpm/@vue+runtime-dom@3.4.19/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [],
+  "node_modules/.pnpm/@vue+shared@3.4.19/node_modules/@vue/shared/dist/shared.esm-bundler.js": [],
+  "node_modules/.pnpm/@vueuse+core@10.8.0_vue@3.4.19/node_modules/@vueuse/core/index.mjs": [],
+  "node_modules/.pnpm/@vueuse+shared@10.8.0_vue@3.4.19/node_modules/@vueuse/shared/index.mjs": [],
+  "node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs": [],
+  "node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js": [],
+  "node_modules/.pnpm/pinia@2.1.7_typescript@5.3.3_vue@3.4.19/node_modules/pinia/dist/pinia.mjs": [],
+  "node_modules/.pnpm/unhead@1.8.10/node_modules/unhead/dist/index.mjs": [],
+  "node_modules/.pnpm/vite-ssg@0.23.6_critters@0.0.20_vite@5.1.3_vue-router@4.2.5_vue@3.4.19/node_modules/vite-ssg/dist/index.mjs": [],
+  "node_modules/.pnpm/vite-ssg@0.23.6_critters@0.0.20_vite@5.1.3_vue-router@4.2.5_vue@3.4.19/node_modules/vite-ssg/dist/shared/vite-ssg.5912142e.mjs": [],
+  "node_modules/.pnpm/vite-ssg@0.23.6_critters@0.0.20_vite@5.1.3_vue-router@4.2.5_vue@3.4.19/node_modules/vite-ssg/dist/shared/vite-ssg.a009fbf1.mjs": [],
+  "node_modules/.pnpm/vue-demi@0.14.7_vue@3.4.19/node_modules/vue-demi/lib/index.mjs": [],
+  "node_modules/.pnpm/vue-i18n@9.9.1_vue@3.4.19/node_modules/vue-i18n/dist/vue-i18n.runtime.mjs": [],
+  "node_modules/.pnpm/vue-router@4.2.5_vue@3.4.19/node_modules/vue-router/dist/vue-router.mjs": [],
   "node_modules/.pnpm/workbox-window@7.0.0/node_modules/workbox-window/build/workbox-window.prod.es5.mjs": [
-    "/assets/workbox-window.prod.es5-prqDwDSL.js"
+    "/assets/workbox-window.prod.es5-DFjpnwFp.js"
   ],
-  "src/App.vue?vue&type=script&setup=true&lang.ts": [
+  "src/App.vue?vue&type=script&setup=true&lang.ts": [],
+  "src/components/PriceLabel.vue": [
+    "/assets/index-CDdg2bg2.js"
   ],
-  "src/components/TheInput.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index-Wh1tJsoW.js"
-  ],
-  "src/composables/dark.ts": [
-  ],
+  "src/composables/dark.ts": [],
   "src/layouts/404.vue": [
-    "/assets/404-im-oQmnf.js"
+    "/assets/404-BxgFCVDz.js"
   ],
   "src/layouts/404.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/404-im-oQmnf.js"
+    "/assets/404-BxgFCVDz.js"
   ],
   "src/layouts/default.vue": [
-    "/assets/default-3ytgtale.js"
+    "/assets/default-CM13T0cw.js"
   ],
   "src/layouts/home.vue": [
-    "/assets/home-QKqYxPRR.js"
+    "/assets/home-DPrfGWgu.js"
   ],
-  "src/main.ts": [
-  ],
-  "src/modules/i18n.ts": [
-  ],
-  "src/modules/nprogress.ts": [
-  ],
-  "src/modules/pinia.ts": [
-  ],
-  "src/modules/pwa.ts": [
-  ],
+  "src/main.ts": [],
+  "src/modules/i18n.ts": [],
+  "src/modules/nprogress.ts": [],
+  "src/modules/pinia.ts": [],
+  "src/modules/pwa.ts": [],
   "src/pages/README.md": [
-    "/assets/README-8NriKZKw.js"
+    "/assets/README-Bd3KZ79d.js"
   ],
   "src/pages/[...all].vue": [
-    "/assets/_...all_-ct7-n-WN.js"
+    "/assets/_...all_-CXqor-i7.js"
   ],
   "src/pages/[...all].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_...all_-ct7-n-WN.js"
+    "/assets/_...all_-CXqor-i7.js"
   ],
   "src/pages/about.md": [
-    "/assets/about-jn7cxcwE.js"
+    "/assets/about-HnvgX4rj.js"
   ],
   "src/pages/hi/[name].vue": [
-    "/assets/_name_-v7lm6CYO.js"
+    "/assets/_name_-DGuMzCGl.js"
   ],
   "src/pages/hi/[name].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_name_-v7lm6CYO.js"
+    "/assets/_name_-DGuMzCGl.js"
   ],
   "src/pages/index.vue": [
-    "/assets/index-Wh1tJsoW.js"
+    "/assets/index-CDdg2bg2.js"
   ],
   "src/pages/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index-Wh1tJsoW.js"
+    "/assets/index-CDdg2bg2.js"
   ],
-  "src/stores/user.ts": [
-    "/assets/user-utWsmDnM.js"
+  "src/server/app.ts": [
+    "/assets/index-CDdg2bg2.js"
   ],
-  "src/styles/main.css": [
+  "src/stores/stock.ts": [
+    "/assets/index-CDdg2bg2.js"
   ],
+  "src/styles/main.css": [],
   "virtual:/vue-router/auto/route-block": [
-    "/assets/route-block-zudrvJp0.js"
+    "/assets/route-block-B_A1xBdJ.js"
   ],
-  "virtual:vue-router/auto/routes": [
-  ]
+  "virtual:vue-router/auto/routes": []
 }

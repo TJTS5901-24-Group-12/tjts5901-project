@@ -1,21 +1,39 @@
 <script setup lang="ts">
+import app from '../server/app'
+
 defineOptions({
   name: 'IndexPage',
+  data() {
+    return {
+      amount: 0 as number,
+      price: 0 as number,
+      bid: true as boolean,
+      offer: false as boolean,
+    }
+  },
+  methods: {
+    submit() {
+      if (this.amount > 0 && this.price > 0)
+        app.validateTransaction(this.amount, this.price)
+    },
+    cancel() {
+      this.amount = 0
+      this.price = 0
+      this.bid = false
+      this.offer = false
+    },
+    isBid() {
+      this.bid = true
+      this.offer = false
+    },
+    isOffer() {
+      this.offer = true
+      this.bid = false
+    },
+  },
 })
 
-const user = useUserStore()
-const amount = ref(user.amount)
-const price = ref(user.price)
-const bidSelected = ref(user.bidSelected)
-const offerSelected = ref(user.offerSelected)
 const { t } = useI18n()
-
-function cancel() {
-  bidSelected.value = false
-  offerSelected.value = false
-  price.value = 0
-  amount.value = 0
-}
 </script>
 
 <template>
@@ -35,15 +53,14 @@ function cancel() {
     <hr ml-auto mr-auto mt-6 w-100>
 
     <p mb-2 mt-6>
-      <!-- This should be done on backend to fetch the stock price -->
-      <em text-sm>Latest traded price: <b>xxx.xx</b> (fetched hourly)</em>
+      <em text-sm>Latest traded price: <b><PriceLabel /></b> (fetched hourly)</em>
     </p>
 
     <div>
       <button
         style="width: 15%"
         m-3 text-sm bid-btn
-        @click="bidSelected = !bidSelected"
+        @click="isBid()"
       >
         {{ t('button.bid') }}
       </button>
@@ -51,32 +68,45 @@ function cancel() {
       <button
         style="width: 15%"
         m-3 text-sm offer-btn
-        :disabled="bidSelected"
-        @click="offerSelected = !offerSelected"
+        @click="isOffer()"
       >
         {{ t('button.offer') }}
       </button>
     </div>
 
     <fieldset m-a w-xl border border-rd>
-      <legend>{{ bidSelected && !offerSelected ? 'Offer' : 'Bid' }}</legend>
+      <legend>{{ bid && !offer ? 'Bid' : 'Offer' }}</legend>
       <div w-full flex justify-center flex-items-center>
         <div flex flex-col flex-items-start>
           <em>{{ t(`intro.amount`) }}</em>
-          <TheInput
+          <input
+            id="input"
             v-model="amount"
             :placeholder="t('intro.amount')"
-            autocomplete="false"
-          />
+            type="number"
+            p="y-2"
+            w="220px"
+            text="center"
+            bg="transparent"
+            border="~ rounded gray-200 dark:gray-700"
+            outline="none active:none"
+          >
         </div>
 
         <div flex flex-col flex-items-start style="margin-left: 22px;">
           <em>{{ t(`intro.price`) }}</em>
-          <TheInput
+          <input
+            id="input"
             v-model="price"
             :placeholder="t('intro.price')"
-            autocomplete="false"
-          />
+            type="number"
+            p="y-2"
+            w="220px"
+            text="center"
+            bg="transparent"
+            border="~ rounded gray-200 dark:gray-700"
+            outline="none active:none"
+          >
         </div>
       </div>
 
@@ -89,16 +119,18 @@ function cancel() {
       <button
         style="width: 15%"
         m-3 text-sm btn-default
-        @click="cancel"
+        @click="cancel()"
       >
         {{ t('button.cancel') }}
       </button>
 
+      {{ console.log(price, amount) }}
       <button
         style="width: 15%"
         m-3 text-sm btn-default
-        :disabled="!price && !amount"
+        :disabled="!price || !amount"
         data-test-id="confirm-button"
+        @click="submit()"
       >
         {{ t('button.confirm') }}
       </button>

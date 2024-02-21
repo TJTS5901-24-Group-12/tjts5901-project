@@ -9,12 +9,8 @@ export default {
   },
   created() {
     app.fetchPrice()
-      .then((price) => {
-        this.lastPrice = price
-      })
-      .catch((error) => {
-        console.error('Error fetching stock data:', error)
-      })
+      .then((price) => { this.lastPrice = price })
+      .catch((error) => { console.error('Error fetching stock data:', error) })
   },
 }
 </script>

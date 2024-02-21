@@ -1,32 +1,46 @@
 <script setup lang="ts">
 import app from '../server/app'
 
-defineOptions({
-  name: 'IndexPage',
-  data() {
+interface TransactionData {
+  id: number
+  amount: number
+  price: number
+}
+
+defineComponent({
+  data(): { amount: number, price: number, bid: boolean, offer: boolean, bids: TransactionData[], offers: TransactionData[] } {
     return {
-      amount: 0 as number,
-      price: 0 as number,
-      bid: true as boolean,
-      offer: false as boolean,
+      amount: 0,
+      price: 0,
+      bid: true,
+      offer: false,
+      bids: [],
+      offers: [],
     }
   },
   methods: {
-    submit() {
+    async validate(): Promise<boolean> {
       if (this.amount > 0 && this.price > 0)
-        app.validateTransaction(this.amount, this.price)
+        return await app.validateTransaction(this.amount, this.price)
+      return false
     },
-    cancel() {
+    async submit(): Promise<void> {
+      if (await this.validate()) {
+        this.bid
+          ? app.submitTransaction(this.amount, this.price, this.bids)
+          : app.submitTransaction(this.amount, this.price, this.offers)
+      }
+    },
+    cancel(): void {
       this.amount = 0
       this.price = 0
-      this.bid = false
-      this.offer = false
+      this.isBid()
     },
-    isBid() {
+    isBid(): void {
       this.bid = true
       this.offer = false
     },
-    isOffer() {
+    isOffer(): void {
       this.offer = true
       this.bid = false
     },
@@ -53,23 +67,17 @@ const { t } = useI18n()
     <hr ml-auto mr-auto mt-6 w-100>
 
     <p mb-2 mt-6>
-      <em text-sm>Latest traded price: <b><PriceLabel /></b> (fetched hourly)</em>
+      <em text-sm>Latest traded price: <b>
+        <PriceLabel />
+      </b> (fetched hourly)</em>
     </p>
 
     <div>
-      <button
-        style="width: 15%"
-        m-3 text-sm bid-btn
-        @click="isBid()"
-      >
+      <button style="width: 15%" m-3 text-sm bid-btn @click="isBid()">
         {{ t('button.bid') }}
       </button>
 
-      <button
-        style="width: 15%"
-        m-3 text-sm offer-btn
-        @click="isOffer()"
-      >
+      <button style="width: 15%" m-3 text-sm offer-btn @click="isOffer()">
         {{ t('button.offer') }}
       </button>
     </div>
@@ -80,32 +88,16 @@ const { t } = useI18n()
         <div flex flex-col flex-items-start>
           <em>{{ t(`intro.amount`) }}</em>
           <input
-            id="input"
-            v-model="amount"
-            :placeholder="t('intro.amount')"
-            type="number"
-            p="y-2"
-            w="220px"
-            text="center"
-            bg="transparent"
-            border="~ rounded gray-200 dark:gray-700"
-            outline="none active:none"
+            id="input" v-model="amount" :placeholder="t('intro.amount')" type="number" p="y-2" w="220px"
+            text="center" bg="transparent" border="~ rounded gray-200 dark:gray-700" outline="none active:none"
           >
         </div>
 
         <div flex flex-col flex-items-start style="margin-left: 22px;">
           <em>{{ t(`intro.price`) }}</em>
           <input
-            id="input"
-            v-model="price"
-            :placeholder="t('intro.price')"
-            type="number"
-            p="y-2"
-            w="220px"
-            text="center"
-            bg="transparent"
-            border="~ rounded gray-200 dark:gray-700"
-            outline="none active:none"
+            id="input" v-model="price" :placeholder="t('intro.price')" type="number" p="y-2" w="220px" text="center"
+            bg="transparent" border="~ rounded gray-200 dark:gray-700" outline="none active:none"
           >
         </div>
       </div>
@@ -116,20 +108,12 @@ const { t } = useI18n()
     </fieldset>
 
     <div>
-      <button
-        style="width: 15%"
-        m-3 text-sm btn-default
-        @click="cancel()"
-      >
+      <button style="width: 15%" m-3 text-sm btn-default @click="cancel()">
         {{ t('button.cancel') }}
       </button>
 
-      {{ console.log(price, amount) }}
       <button
-        style="width: 15%"
-        m-3 text-sm btn-default
-        :disabled="!price || !amount"
-        data-test-id="confirm-button"
+        style="width: 15%" m-3 text-sm btn-default :disabled="!price || !amount" data-test-id="confirm-button"
         @click="submit()"
       >
         {{ t('button.confirm') }}
@@ -137,21 +121,21 @@ const { t } = useI18n()
     </div>
 
     <!-- Mock data for bids and offers to show on UI -->
-    <div flex-column m-auto mt-10 w-75 flex justify-center>
+    <div class="flex-column m-auto mt-10 w-75 flex justify-center">
       <div>
-        <b color-bluegray-800>Bids</b>
+        <b class="color-bluegray-800">Bids</b>
         <ul>
-          <li>40 @ 102.8</li>
-          <li>5 @ 101.4</li>
-          <li>100 @ 101.2</li>
+          <li v-for="bidItem in bids" :key="bidItem.id">
+            {{ bidItem.amount }} @ {{ bidItem.price }}
+          </li>
         </ul>
       </div>
-      <div ml-12>
-        <b color-bluegray-800>Offers</b>
+      <div class="ml-12">
+        <b class="color-bluegray-800">Offers</b>
         <ul>
-          <li>250 @ 102.9</li>
-          <li>900 @ 103.1</li>
-          <li>1200 @ 103.2</li>
+          <li v-for="offerItem in offers" :key="offerItem.id">
+            {{ offerItem.amount }} @ {{ offerItem.price }}
+          </li>
         </ul>
       </div>
     </div>

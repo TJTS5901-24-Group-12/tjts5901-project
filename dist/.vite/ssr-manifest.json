@@ -8,7 +8,7 @@
   "\u0000vite/modulepreload-polyfill.js": [],
   "\u0000vite/preload-helper.js": [],
   "../../../@vite-plugin-pwa/virtual:pwa-register": [
-    "/assets/virtual_pwa-register-CFdavnbZ.js"
+    "/assets/virtual_pwa-register-DBjApOVP.js"
   ],
   "../../../__uno.css": [],
   "assets/app-!~{001}~.js-unocss-hash.css": [],
@@ -96,20 +96,20 @@
   ],
   "src/App.vue?vue&type=script&setup=true&lang.ts": [],
   "src/components/PriceLabel.vue": [
-    "/assets/index-CDdg2bg2.js"
+    "/assets/index-B4lJiMSH.js"
   ],
   "src/composables/dark.ts": [],
   "src/layouts/404.vue": [
-    "/assets/404-BxgFCVDz.js"
+    "/assets/404-DWmjBqgo.js"
   ],
   "src/layouts/404.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/404-BxgFCVDz.js"
+    "/assets/404-DWmjBqgo.js"
   ],
   "src/layouts/default.vue": [
-    "/assets/default-CM13T0cw.js"
+    "/assets/default-BQcwypgA.js"
   ],
   "src/layouts/home.vue": [
-    "/assets/home-DPrfGWgu.js"
+    "/assets/home-D71Ix3XW.js"
   ],
   "src/main.ts": [],
   "src/modules/i18n.ts": [],
@@ -117,34 +117,31 @@
   "src/modules/pinia.ts": [],
   "src/modules/pwa.ts": [],
   "src/pages/README.md": [
-    "/assets/README-Bd3KZ79d.js"
+    "/assets/README-Dp9m1W5o.js"
   ],
   "src/pages/[...all].vue": [
-    "/assets/_...all_-CXqor-i7.js"
+    "/assets/_...all_-DcNIpl0o.js"
   ],
   "src/pages/[...all].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_...all_-CXqor-i7.js"
+    "/assets/_...all_-DcNIpl0o.js"
   ],
   "src/pages/about.md": [
-    "/assets/about-HnvgX4rj.js"
+    "/assets/about-CwM07JVD.js"
   ],
   "src/pages/hi/[name].vue": [
-    "/assets/_name_-DGuMzCGl.js"
+    "/assets/_name_-CgsboVVz.js"
   ],
   "src/pages/hi/[name].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_name_-DGuMzCGl.js"
+    "/assets/_name_-CgsboVVz.js"
   ],
   "src/pages/index.vue": [
-    "/assets/index-CDdg2bg2.js"
+    "/assets/index-B4lJiMSH.js"
   ],
   "src/pages/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index-CDdg2bg2.js"
+    "/assets/index-B4lJiMSH.js"
   ],
   "src/server/app.ts": [
-    "/assets/index-CDdg2bg2.js"
-  ],
-  "src/stores/stock.ts": [
-    "/assets/index-CDdg2bg2.js"
+    "/assets/index-B4lJiMSH.js"
   ],
   "src/styles/main.css": [],
   "virtual:/vue-router/auto/route-block": [

@@ -18,12 +18,22 @@ async function validateTransaction(amount: number, price: number) {
   const minPrice = lastPrice * 0.9
 
   // Validates that amount is given
-  if (!amount)
+  if (!amount) {
     throw new Error('Invalid amount of stocks')
+    return false
+  }
 
   // Validate that price cannot go higher or lower than max price
-  if (!price || price < minPrice || price > maxPrice)
+  if (!price || price < minPrice || price > maxPrice) {
     throw new Error('Price must be +-10% of the last traded price!')
+    return false
+  }
+
+  return true
 }
 
-export default { fetchPrice, validateTransaction }
+function submitTransaction(amount: number, price: number, arr: Array<any>) {
+  arr.push({ id: arr.length, amount, price })
+}
+
+export default { fetchPrice, validateTransaction, submitTransaction }

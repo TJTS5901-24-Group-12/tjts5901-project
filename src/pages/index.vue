@@ -12,6 +12,7 @@ const amount = ref(0)
 const price = ref(0)
 const bid = ref(true)
 const offer = ref(false)
+const lastPrice = ref(0)
 const bids = ref<TransactionData[]>([])
 const offers = ref<TransactionData[]>([])
 
@@ -45,6 +46,14 @@ function isOffer(): void {
   bid.value = false
 }
 
+function getPrice(app: any): void {
+  app.fetchPrice()
+    .then((price: any) => { lastPrice.value = price })
+    .catch((error: any) => { console.error('Error fetching stock data:', error) })
+}
+
+getPrice(app)
+
 const { t } = useI18n()
 </script>
 
@@ -65,8 +74,8 @@ const { t } = useI18n()
     <hr ml-auto mr-auto mt-6 w-100>
 
     <p mb-2 mt-6>
-      <em text-sm>Latest traded price: <b>
-        <PriceLabel />
+      <em text-sm>Latest traded price: <b id="lastPrice">
+        {{ lastPrice }}
       </b> (fetched hourly)</em>
     </p>
 
@@ -86,7 +95,7 @@ const { t } = useI18n()
         <div flex flex-col flex-items-start>
           <em>{{ t(`intro.amount`) }}</em>
           <input
-            id="input" v-model="amount" :placeholder="t('intro.amount')" type="number" p="y-2" w="220px"
+            id="amount" v-model="amount" :placeholder="t('intro.amount')" type="number" p="y-2" w="220px"
             text="center" bg="transparent" border="~ rounded gray-200 dark:gray-700" outline="none active:none"
           >
         </div>
@@ -94,7 +103,7 @@ const { t } = useI18n()
         <div flex flex-col flex-items-start style="margin-left: 22px;">
           <em>{{ t(`intro.price`) }}</em>
           <input
-            id="input" v-model="price" :placeholder="t('intro.price')" type="number" p="y-2" w="220px" text="center"
+            id="price" v-model="price" :placeholder="t('intro.price')" type="number" p="y-2" w="220px" text="center"
             bg="transparent" border="~ rounded gray-200 dark:gray-700" outline="none active:none"
           >
         </div>
@@ -106,12 +115,12 @@ const { t } = useI18n()
     </fieldset>
 
     <div>
-      <button style="width: 15%" m-3 text-sm btn-default @click="cancel">
+      <button style="width: 15%" m-3 text-sm cancel-btn @click="cancel">
         {{ t('button.cancel') }}
       </button>
 
       <button
-        style="width: 15%" m-3 text-sm btn-default :disabled="!price || !amount" data-test-id="confirm-button"
+        style="width: 15%" m-3 text-sm confirm-btn :disabled="!price || !amount"
         @click="submit"
       >
         {{ t('button.confirm') }}

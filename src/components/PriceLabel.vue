@@ -16,5 +16,5 @@ export default {
 </script>
 
 <template>
-  <span>{{ lastPrice }}</span>
+  <span price-label>{{ lastPrice }}</span>
 </template>

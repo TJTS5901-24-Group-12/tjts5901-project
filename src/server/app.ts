@@ -18,6 +18,9 @@ async function validateTransaction(amount: number, price: number) {
   if (!amount)
     throw new Error('Invalid amount of stocks')
 
+  if (!Number.isInteger(amount))
+    throw new Error('Quantity cannot be a float.')
+
   // Validate that price cannot go higher or lower than max price
   if (!price || price < minPrice || price > maxPrice)
     throw new Error('Price must be +-10% of the last traded price!')

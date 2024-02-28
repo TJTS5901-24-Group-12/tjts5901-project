@@ -46,13 +46,13 @@ function isOffer(): void {
   bid.value = false
 }
 
-function getPrice(): void {
+function getPrice(app: any): void {
   app.fetchPrice()
-    .then((price) => { lastPrice.value = price })
-    .catch((error) => { console.error('Error fetching stock data:', error) })
+    .then((price: any) => { lastPrice.value = price })
+    .catch((error: any) => { console.error('Error fetching stock data:', error) })
 }
 
-getPrice()
+getPrice(app)
 
 const { t } = useI18n()
 </script>

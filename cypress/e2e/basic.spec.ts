@@ -40,7 +40,9 @@ context('Test cases', () => {
   })
 
   beforeEach(() => {
+    cy.intercept('https://api.marketdata.app/v1/stocks/quotes/AAPL/', { last: '180.00' }).as('fetchPrice')
     cy.visit('/')
+    cy.wait('@fetchPrice')
 
     cy.contains('Amount')
       .should('exist')

@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import app from '../server/app'
+import { ApiService } from '../services/ApiService'
 
+/*
 interface TransactionData {
   id: number
   amount: number
   price: number
+} */
+
+interface BidsAndOffers {
+  bids: []
+  offers: []
 }
 
 const amount = ref(0)
@@ -13,8 +20,33 @@ const price = ref(0)
 const bid = ref(true)
 const offer = ref(false)
 const lastPrice = ref(0)
-const bids = ref<TransactionData[]>([])
-const offers = ref<TransactionData[]>([])
+// const bids = ref<TransactionData[]>([])
+// const offers = ref<TransactionData[]>([])
+
+const bidsAndOffersData = ref<BidsAndOffers>()
+
+async function fetchData() {
+  try {
+    const result = await ApiService.getBidsAndOffers()
+    if (result)
+      bidsAndOffersData.value = result
+  }
+  catch (error) {
+    console.error('Error fetching data:', error)
+  }
+};
+
+async function startFetchingData() {
+  fetchData()
+  lastPrice.value = await ApiService.getLatestStockPrice()
+  const intervalId = setInterval(fetchData, 10000)
+
+  onBeforeUnmount(() => {
+    clearInterval(intervalId)
+  })
+};
+
+onMounted(startFetchingData)
 
 async function validate(): Promise<boolean> {
   if (amount.value > 0 && price.value > 0)
@@ -25,8 +57,8 @@ async function validate(): Promise<boolean> {
 async function submit(): Promise<void> {
   if (await validate()) {
     bid.value
-      ? app.submitTransaction(amount.value, price.value, bids.value)
-      : app.submitTransaction(amount.value, price.value, offers.value)
+      ? ApiService.addBid(amount.value, price.value).then(() => { fetchData() })
+      : ApiService.addOffer(amount.value, price.value).then(() => { fetchData() })
   }
 }
 
@@ -45,14 +77,6 @@ function isOffer(): void {
   offer.value = true
   bid.value = false
 }
-
-function getPrice(app: any): void {
-  app.fetchPrice()
-    .then((price: any) => { lastPrice.value = price })
-    .catch((error: any) => { console.error('Error fetching stock data:', error) })
-}
-
-getPrice(app)
 
 const { t } = useI18n()
 </script>
@@ -128,19 +152,19 @@ const { t } = useI18n()
     </div>
 
     <!-- Mock data for bids and offers to show on UI -->
-    <div class="flex-column m-auto mt-10 w-75 flex justify-center">
+    <div v-if="bidsAndOffersData" class="flex-column m-auto mt-10 w-75 flex justify-center">
       <div>
         <b class="color-bluegray-800">Bids</b>
-        <ul>
-          <li v-for="bidItem in bids" :key="bidItem.id">
+        <ul v-if="bidsAndOffersData.bids">
+          <li v-for="bidItem in bidsAndOffersData.bids" :key="bidItem.id">
             {{ bidItem.amount }} @ {{ bidItem.price }}
           </li>
         </ul>
       </div>
       <div class="ml-12">
         <b class="color-bluegray-800">Offers</b>
-        <ul>
-          <li v-for="offerItem in offers" :key="offerItem.id">
+        <ul v-if="bidsAndOffersData.offers">
+          <li v-for="offerItem in bidsAndOffersData.offers" :key="offerItem.id">
             {{ offerItem.amount }} @ {{ offerItem.price }}
           </li>
         </ul>

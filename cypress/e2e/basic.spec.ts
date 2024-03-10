@@ -40,11 +40,11 @@ context('Test cases', () => {
   })
 
   beforeEach(() => {
-    cy.request('http://127.0.0.1:3000/getLatestStockPrice').then((response) => {
-      latestStockPrice = response.body // Assuming the response contains the stock price
-    })
-
     cy.visit('/')
+
+    cy.request('http://127.0.0.1:3000/getLatestStockPrice').then((response) => {
+      cy.get('#lastPrice').invoke('text', response.body)
+    })
 
     cy.contains('Amount')
       .should('exist')

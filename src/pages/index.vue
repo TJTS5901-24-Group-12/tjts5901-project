@@ -3,16 +3,15 @@ import { ref } from 'vue'
 import app from '../server/app'
 import { ApiService } from '../services/ApiService'
 
-/*
 interface TransactionData {
   id: number
   amount: number
   price: number
-} */
+}
 
 interface BidsAndOffers {
-  bids: []
-  offers: []
+  bids: TransactionData[]
+  offers: TransactionData[]
 }
 
 const amount = ref(0)
@@ -20,8 +19,6 @@ const price = ref(0)
 const bid = ref(true)
 const offer = ref(false)
 const lastPrice = ref(0)
-// const bids = ref<TransactionData[]>([])
-// const offers = ref<TransactionData[]>([])
 
 const bidsAndOffersData = ref<BidsAndOffers>()
 
@@ -156,6 +153,7 @@ const { t } = useI18n()
       <div>
         <b class="color-bluegray-800">Bids</b>
         <ul v-if="bidsAndOffersData.bids">
+          /** @ts-ignore
           <li v-for="bidItem in bidsAndOffersData.bids" :key="bidItem.id">
             {{ bidItem.amount }} @ {{ bidItem.price }}
           </li>
@@ -167,6 +165,7 @@ const { t } = useI18n()
           <li v-for="offerItem in bidsAndOffersData.offers" :key="offerItem.id">
             {{ offerItem.amount }} @ {{ offerItem.price }}
           </li>
+          */
         </ul>
       </div>
     </div>

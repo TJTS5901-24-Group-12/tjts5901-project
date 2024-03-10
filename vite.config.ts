@@ -20,7 +20,7 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+      '~/': `${path.resolve('', 'src')}/`,
     },
   },
 
@@ -133,7 +133,7 @@ export default defineConfig({
       runtimeOnly: true,
       compositionOnly: true,
       fullInstall: true,
-      include: [path.resolve(__dirname, 'locales/**')],
+      include: [path.resolve('', 'locales/**')],
     }),
 
     // https://github.com/feat-agency/vite-plugin-webfont-dl

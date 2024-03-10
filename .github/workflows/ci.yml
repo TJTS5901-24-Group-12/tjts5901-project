@@ -76,14 +76,29 @@ jobs:
 
       - uses: pnpm/action-setup@v2
 
+      # Fetch code from the other repository
+      - name: Checkout brokerageapp-backend
+        uses: actions/checkout@v2
+        with:
+          repository: TJTS5901-24-Group-12/brokerageapp-backend
+          ref: main
+
+      # Run index.js from the other repository
+      - name: Run index.js in brokerageapp-backend
+        run: |
+          cd brokerageapp-backend
+          node index.js
+          cd ..
+
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
           registry-url: https://registry.npmjs.org/
           cache: pnpm
-
-      - run: pnpm install
 
       - name: Cypress PNPM Patch
         run: cp pnpm-lock.yaml package-lock.json

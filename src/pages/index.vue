@@ -153,7 +153,6 @@ const { t } = useI18n()
       <div>
         <b class="color-bluegray-800">Bids</b>
         <ul v-if="bidsAndOffersData.bids">
-          /** @ts-ignore
           <li v-for="bidItem in bidsAndOffersData.bids" :key="bidItem.id">
             {{ bidItem.amount }} @ {{ bidItem.price }}
           </li>
@@ -165,7 +164,6 @@ const { t } = useI18n()
           <li v-for="offerItem in bidsAndOffersData.offers" :key="offerItem.id">
             {{ offerItem.amount }} @ {{ offerItem.price }}
           </li>
-          */
         </ul>
       </div>
     </div>

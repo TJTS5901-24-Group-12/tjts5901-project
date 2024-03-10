@@ -35,7 +35,6 @@
     "@iconify-json/carbon": "^1.1.30",
     "@intlify/unplugin-vue-i18n": "^2.0.0",
     "@types/markdown-it-link-attributes": "^3.0.4",
-    "@types/node": "^20.11.25",
     "@types/nprogress": "^0.2.3",
     "@unocss/eslint-config": "^0.58.5",
     "@vitejs/plugin-vue": "^5.0.4",

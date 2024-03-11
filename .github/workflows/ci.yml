@@ -66,6 +66,7 @@ jobs:
 
   test-e2e:
     runs-on: ubuntu-latest
+    timeout-minutes: 1.25
     steps:
       - uses: actions/checkout@v3
       - uses: actions/cache@v3
@@ -88,7 +89,7 @@ jobs:
 
       # Run index.js from the other repository
       - name: Run index.js in brokerageapp-backend
-        run: node index.js
+        run: node index.js &
 
       - name: Checkout back to the tjts5901-project
         uses: actions/checkout@v2

@@ -11,6 +11,7 @@ interface TransactionData {
 }
 
 interface DealData {
+  id: number
   bidId: number
   offerId: number
   amountSold: number

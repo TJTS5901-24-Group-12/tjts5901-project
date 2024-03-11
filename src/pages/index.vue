@@ -15,6 +15,7 @@ interface DealData {
   offerId: number
   amountSold: number
   price: number
+  timeOfDeal: string
 }
 
 interface TransactionsAndDealsData {
@@ -182,7 +183,7 @@ const { t } = useI18n()
         <b class="color-bluegray-800">Deals</b>
         <ul v-if="bidsOffersAndDealsData.deals">
           <li v-for="dealItem in bidsOffersAndDealsData.deals" :key="dealItem.id">
-            {{ dealItem.offerId }} -> {{ dealItem.bidId }} # {{ dealItem.amountSold }} @ {{ dealItem.price }}
+            {{ dealItem.offerId }} -> {{ dealItem.bidId }} {{ dealItem.amountSold }} @ {{ dealItem.price }} At time: {{ dealItem.timeOfDeal }}
           </li>
         </ul>
       </div>

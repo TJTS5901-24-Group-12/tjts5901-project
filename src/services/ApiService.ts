@@ -31,9 +31,9 @@ export const ApiService = {
       })
   },
 
-  async getBidsAndOffers() {
+  async getBidsOffersAndDeals() {
     try {
-      const response: AxiosResponse<any> = await axios.get(`${apiUrl}/getBidsAndOffers`)
+      const response: AxiosResponse<any> = await axios.get(`${apiUrl}/getBidsOffersAndDeals`)
       console.log(response.data)
       return response.data
     }

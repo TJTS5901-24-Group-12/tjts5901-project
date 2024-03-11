@@ -7,11 +7,20 @@ interface TransactionData {
   id: number
   amount: number
   price: number
+  amountLeft: number
 }
 
-interface BidsAndOffers {
+interface DealData {
+  bidId: number
+  offerId: number
+  amountSold: number
+  price: number
+}
+
+interface TransactionsAndDealsData {
   bids: TransactionData[]
   offers: TransactionData[]
+  deals: DealData[]
 }
 
 const amount = ref(0)
@@ -20,13 +29,16 @@ const bid = ref(true)
 const offer = ref(false)
 const lastPrice = ref(0)
 
-const bidsAndOffersData = ref<BidsAndOffers>()
+const bidsOffersAndDealsData = ref<TransactionsAndDealsData>()
 
 async function fetchData() {
   try {
-    const result = await ApiService.getBidsAndOffers()
-    if (result)
-      bidsAndOffersData.value = result
+    const bidsOffersAndDealsResult = await ApiService.getBidsOffersAndDeals()
+    if (bidsOffersAndDealsResult)
+      bidsOffersAndDealsData.value = bidsOffersAndDealsResult
+    const lastPriceResult = await ApiService.getLatestStockPrice()
+    if (lastPriceResult)
+      lastPrice.value = lastPriceResult
   }
   catch (error) {
     console.error('Error fetching data:', error)
@@ -54,8 +66,8 @@ async function validate(): Promise<boolean> {
 async function submit(): Promise<void> {
   if (await validate()) {
     bid.value
-      ? ApiService.addBid(amount.value, price.value).then(() => { fetchData() })
-      : ApiService.addOffer(amount.value, price.value).then(() => { fetchData() })
+      ? ApiService.addBid(amount.value, price.value).then(() => { setTimeout(fetchData, 1000) })
+      : ApiService.addOffer(amount.value, price.value).then(() => { setTimeout(fetchData, 1000) })
   }
 }
 
@@ -149,26 +161,40 @@ const { t } = useI18n()
     </div>
 
     <!-- Mock data for bids and offers to show on UI -->
-    <div v-if="bidsAndOffersData" class="flex-column m-auto mt-10 w-75 flex justify-center">
+    <div v-if="bidsOffersAndDealsData" class="flex-column m-auto mt-10 w-150 flex justify-center">
       <div>
         <b class="color-bluegray-800">Bids</b>
-        <ul v-if="bidsAndOffersData.bids">
-          <li v-for="bidItem in bidsAndOffersData.bids" :key="bidItem.id">
-            {{ bidItem.amount }} @ {{ bidItem.price }}
+        <ul v-if="bidsOffersAndDealsData.bids">
+          <li v-for="bidItem in bidsOffersAndDealsData.bids" :key="bidItem.id" :class="{ grayedout: bidItem.amountLeft === 0 }">
+            ID: {{ bidItem.id }} [{{ bidItem.amountLeft }} / {{ bidItem.amount }}] @ {{ bidItem.price }}
           </li>
         </ul>
       </div>
       <div class="ml-12">
         <b class="color-bluegray-800">Offers</b>
-        <ul v-if="bidsAndOffersData.offers">
-          <li v-for="offerItem in bidsAndOffersData.offers" :key="offerItem.id">
-            {{ offerItem.amount }} @ {{ offerItem.price }}
+        <ul v-if="bidsOffersAndDealsData.offers">
+          <li v-for="offerItem in bidsOffersAndDealsData.offers" :key="offerItem.id" :class="{ grayedout: offerItem.amountLeft === 0 }">
+            ID: {{ offerItem.id }} [{{ offerItem.amountLeft }} / {{ offerItem.amount }}] @ {{ offerItem.price }}
+          </li>
+        </ul>
+      </div>
+      <div class="ml-12">
+        <b class="color-bluegray-800">Deals</b>
+        <ul v-if="bidsOffersAndDealsData.deals">
+          <li v-for="dealItem in bidsOffersAndDealsData.deals" :key="dealItem.id">
+            {{ dealItem.offerId }} -> {{ dealItem.bidId }} # {{ dealItem.amountSold }} @ {{ dealItem.price }}
           </li>
         </ul>
       </div>
     </div>
   </div>
 </template>
+
+<style>
+.grayedout {
+  opacity: 0.5;
+}
+</style>
 
 <route lang="yaml">
 meta:

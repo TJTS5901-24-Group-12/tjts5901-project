@@ -1,7 +1,7 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable node/handle-callback-err */
 
-let amountInput: any, priceInput: any
+let amountInput: any, priceInput: any, latestStockPrice: any
 
 context('Test cases', () => {
   function bidSetup() {
@@ -40,9 +40,11 @@ context('Test cases', () => {
   })
 
   beforeEach(() => {
-    cy.intercept('https://api.marketdata.app/v1/stocks/quotes/AAPL/', { last: '180.00' }).as('fetchPrice')
     cy.visit('/')
-    cy.wait('@fetchPrice')
+
+    cy.request('http://127.0.0.1:3000/getLatestStockPrice').then((response) => {
+      cy.get('#lastPrice').invoke('text', response.body)
+    })
 
     cy.contains('Amount')
       .should('exist')

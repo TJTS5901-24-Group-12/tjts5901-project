@@ -36,7 +36,7 @@ dependencies:
     specifier: ^23.0.2
     version: 23.0.2(typescript@5.4.2)
   vue:
-    specifier: ^3.4.19
+    specifier: ^3.4.21
     version: 3.4.21(typescript@5.4.2)
   vue-demi:
     specifier: ^0.14.7

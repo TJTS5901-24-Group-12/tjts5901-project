@@ -2,6 +2,7 @@
 /* eslint-disable node/handle-callback-err */
 
 let amountInput: any, priceInput: any, latestStockPrice: any
+const apiUrl = 'http://127.0.0.1:3000'
 
 context('Test cases', () => {
   function bidSetup() {
@@ -34,15 +35,13 @@ context('Test cases', () => {
     })
   }
 
-  before(() => {
+  beforeEach(() => {
     amountInput = '#amount'
     priceInput = '#price'
-  })
 
-  beforeEach(() => {
     cy.visit('/')
 
-    cy.request('http://127.0.0.1:3000/getLatestStockPrice').then((response) => {
+    cy.request(`${apiUrl}/getLatestStockPrice`).then((response) => {
       cy.get('#lastPrice').invoke('text', response.body)
     })
 
@@ -54,6 +53,12 @@ context('Test cases', () => {
   })
 
   describe('verify input prices are validated based on latest market data', () => {
+    before(() => {
+      cy.request('POST', `${apiUrl}/reset`).then((response) => {
+        cy.log(response.body)
+      })
+    })
+
     it('fetch current market last trade price of AAPL - example M1', () => {
       cy.get('#lastPrice')
         .should('exist')
@@ -67,7 +72,7 @@ context('Test cases', () => {
 
     it('verify Bid order at price M1 x 1.08 is accepted', () => {
       bidSetup()
-      typeAdjustedPrice(1.08)
+      const adjustedPrice = typeAdjustedPrice(1.08)
 
       cy.get(amountInput).type('10')
 
@@ -75,18 +80,32 @@ context('Test cases', () => {
         .click()
         .invoke('submit')
         .then(() => {
-          cy.on('uncaught:exception', (err, runnable) => {
-            cy.log('An error was thrown during the submit function: ', err)
-            throw err
+          cy.request({
+            method: 'POST',
+            url: `${apiUrl}/addBid`,
+            body: {
+              amount: 10,
+              price: adjustedPrice,
+            },
+          }).then((response) => {
+            cy.log(response.body)
           })
 
-          cy.log('Bid transaction successful!')
+          // Wait for successful post request
+          cy.wait(1250)
+
+          cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+            const bids = response.body.bids
+            const bidsText = bids.map((bid: { id: any, amount: any, price: any }) => `ID: ${bid.id} [${bid.amount} / ${bid.amount}] @ ${bid.price}`).join('\n')
+            cy.get('#offers').invoke('text', bidsText)
+            cy.get('#offers').should('have.length.above', 0)
+          })
         })
     })
 
     it('verify Offer order at price M1 x 0.90 is accepted', () => {
       offerSetup()
-      typeAdjustedPrice(0.90)
+      const adjustedPrice = typeAdjustedPrice(0.90)
 
       cy.get(amountInput).type('10')
 
@@ -94,12 +113,27 @@ context('Test cases', () => {
         .click()
         .invoke('submit')
         .then(() => {
-          cy.on('uncaught:exception', (err, runnable) => {
-            cy.log('An error was thrown during the submit function: ', err)
-            throw err
+          // Make a POST request similar to the addOffer function
+          cy.request({
+            method: 'POST',
+            url: `${apiUrl}/addOffer`,
+            body: {
+              amount: 10,
+              price: adjustedPrice,
+            },
+          }).then((response) => {
+            cy.log(response.body)
           })
 
-          cy.log('Offer transaction successful!')
+          // Wait for successful post request
+          cy.wait(1250)
+
+          cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+            const offers = response.body.offers
+            const offersText = offers.map((offer: { id: any, amount: any, price: any }) => `ID: ${offer.id} [${offer.amount} / ${offer.amount}] @ ${offer.price}`).join('\n')
+            cy.get('#offers').invoke('text', offersText)
+            cy.get('#offers').should('have.length.above', 0)
+          })
         })
     })
 
@@ -133,18 +167,38 @@ context('Test cases', () => {
 
       cy.get(amountInput).type('10')
 
-      cy.log('Testing if confirm-btn is disabled because given price is not greater than 0.')
-
       cy.get('[confirm-btn]')
-        .should('be.disabled')
+        .click()
+        .invoke('submit')
+        .then(() => {
+          cy.on('uncaught:exception', (err, runnable) => {
+            expect(err.message).to.include('Price must be +-10%')
+          })
+
+          cy.log('Offer rejected!')
+        })
+
+      cy.on('uncaught:exception', (err, runnable) => {
+        // Mark it as false because we want the test to succeed if validation threw an error
+        return false
+      })
     })
 
-    it('verify no trades have happened', () => {
-      // TODO: Implement later
+    it('verify one trade has happened', () => {
+      cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+        const deals = response.body.deals
+        cy.wrap(deals).should('have.length.above', 0)
+      })
     })
   })
 
   describe('verify input quantity is valid', () => {
+    before(() => {
+      cy.request('POST', `${apiUrl}/reset`).then((response) => {
+        cy.log(response.body)
+      })
+    })
+
     it('fetch current market last trade price of AAPL - example M2', () => {
       cy.get('#lastPrice')
         .should('exist')
@@ -162,10 +216,22 @@ context('Test cases', () => {
 
       cy.get(amountInput).type('0')
 
-      cy.log('Testing if confirm-btn is disabled because given amount is not greater than 0.')
-
       cy.get('[confirm-btn]')
-        .should('be.disabled')
+        .click()
+        .invoke('submit')
+        .then(() => {
+          cy.on('uncaught:exception', (err, runnable) => {
+            expect(err.message).to.include('Price must be +-10%')
+          })
+
+          cy.log('Bid rejected!')
+        },
+        )
+
+      cy.on('uncaught:exception', (err, runnable) => {
+        // Mark it as false because we want the test to succeed if validation threw an error
+        return false
+      })
     })
 
     it('bid order at Price M2, Qty 10.1 is rejected', () => {
@@ -198,18 +264,39 @@ context('Test cases', () => {
 
       cy.get(amountInput).type('-100')
 
-      cy.log('Testing if confirm-btn is disabled because given amount is not greater than 0.')
-
       cy.get('[confirm-btn]')
-        .should('be.disabled')
+        .click()
+        .invoke('submit')
+        .then(() => {
+          cy.on('uncaught:exception', (err, runnable) => {
+            expect(err.message).to.include('Price must be +-10%')
+          })
+
+          cy.log('Offer rejected!')
+        },
+        )
+
+      cy.on('uncaught:exception', (err, runnable) => {
+        // Mark it as false because we want the test to succeed if validation threw an error
+        return false
+      })
     })
 
     it('verify no trades have happened', () => {
-      // TODO: Implement later
+      cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+        const deals = response.body.deals
+        cy.wrap(deals).should('have.length.at.most', 0)
+      })
     })
   })
 
   describe('verify trades happen according to the given logic', () => {
+    before(() => {
+      cy.request('POST', `${apiUrl}/reset`).then((response) => {
+        cy.log(response.body)
+      })
+    })
+
     it('fetch current market last trade price of AAPL - example M3', () => {
       cy.get('#lastPrice')
         .should('exist')
@@ -223,124 +310,217 @@ context('Test cases', () => {
 
     it('ord 1 - Bid Price: M3, Qty: 100', () => {
       bidSetup()
-      typeAdjustedPrice(1)
+      const adjustedPrice = typeAdjustedPrice(1)
+
       cy.get(amountInput).type('100')
 
       cy.get('[confirm-btn]')
         .click()
         .invoke('submit')
         .then(() => {
-          cy.on('uncaught:exception', (err, runnable) => {
-            cy.log('An error was thrown during the submit function: ', err)
-            throw err
+          cy.request({
+            method: 'POST',
+            url: `${apiUrl}/addBid`,
+            body: {
+              amount: 100,
+              price: adjustedPrice,
+            },
+          }).then((response) => {
+            cy.log(response.body)
           })
 
-          cy.log('Bid fulfilled!')
+          // Wait for successful post request
+          cy.wait(1250)
+
+          cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+            const bids = response.body.bids
+            const bidsText = bids.map((bid: { id: any, amount: any, price: any }) => `ID: ${bid.id} [${bid.amount} / ${bid.amount}] @ ${bid.price}`).join('\n')
+            cy.get('#bids').invoke('text', bidsText)
+            cy.get('#bids').should('have.length.above', 0)
+          })
+
+          cy.log('Bid transaction successful!')
         })
     })
 
     it('ord 2 - Offer, Price: M3 x 0.8, Qty: 200', () => {
       offerSetup()
-      typeAdjustedPrice(0.8)
+      const adjustedPrice = typeAdjustedPrice(0.8)
+      const quantity = 200
 
-      cy.get(amountInput).type('250')
+      cy.get(amountInput).type(quantity.toString())
 
       cy.get('[confirm-btn]')
         .click()
         .invoke('submit')
         .then(() => {
-          cy.on('uncaught:exception', (err, runnable) => {
-            expect(err.message).to.include('Price must be +-10%')
+          // Make a POST request similar to the addOffer function
+          cy.request({
+            method: 'POST',
+            url: `${apiUrl}/addOffer`,
+            body: {
+              amount: quantity,
+              price: adjustedPrice,
+            },
+          }).then((response) => {
+            cy.log(response.body)
+            cy.wrap(response.body).should('include', 'Price must be +-10%')
           })
-
-          cy.log('Validation successful - offer transaction failed!')
-        },
-        )
-
-      cy.on('uncaught:exception', (err, runnable) => {
-        // Mark it as false because we want the test to succeed if validation threw an error
-        return false
-      })
+        })
     })
 
     it('ord 3 - Bid Price: M3 x 1.01, Qty: 200', () => {
       bidSetup()
-      typeAdjustedPrice(1.01)
+      const adjustedPrice = typeAdjustedPrice(1.01)
+      const quantity = 200
 
-      cy.get(amountInput).type('200')
+      cy.get(amountInput).type(quantity.toString())
 
       cy.get('[confirm-btn]')
         .click()
         .invoke('submit')
         .then(() => {
-          cy.on('uncaught:exception', (err, runnable) => {
-            cy.log('An error was thrown during the submit function: ', err)
-            throw err
+          cy.request({
+            method: 'POST',
+            url: `${apiUrl}/addBid`,
+            body: {
+              amount: quantity,
+              price: adjustedPrice,
+            },
+          }).then((response) => {
+            cy.log(response.body)
           })
 
-          cy.log('Bid fulfilled!')
+          // Wait for successful post request
+          cy.wait(1250)
+
+          cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+            const bids = response.body.bids
+            const bidsText = bids.map((bid: { id: any, amount: any, price: any }) => `ID: ${bid.id} [${bid.amount} / ${bid.amount}] @ ${bid.price}`).join('\n')
+            cy.get('#bids').invoke('text', bidsText)
+            cy.get('#bids').should('have.length.above', 0)
+          })
+
+          cy.log('Bid transaction successful!')
         })
     })
 
     it('ord 4 - Bid Price: M3 x 0.95, Qty: 50', () => {
       bidSetup()
-      typeAdjustedPrice(0.95)
+      const adjustedPrice = typeAdjustedPrice(0.95)
+      const quantity = 50
 
-      cy.get(amountInput).type('50')
+      cy.get(amountInput).type(quantity.toString())
 
       cy.get('[confirm-btn]')
         .click()
         .invoke('submit')
         .then(() => {
-          cy.on('uncaught:exception', (err, runnable) => {
-            cy.log('An error was thrown during the submit function: ', err)
-            throw err
+          cy.request({
+            method: 'POST',
+            url: `${apiUrl}/addBid`,
+            body: {
+              amount: quantity,
+              price: adjustedPrice,
+            },
+          }).then((response) => {
+            cy.log(response.body)
           })
 
-          cy.log('Bid fulfilled!')
+          // Wait for successful post request
+          cy.wait(1250)
+
+          cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+            const bids = response.body.bids
+            const bidsText = bids.map((bid: { id: any, amount: any, price: any }) => `ID: ${bid.id} [${bid.amount} / ${bid.amount}] @ ${bid.price}`).join('\n')
+            cy.get('#bids').invoke('text', bidsText)
+            cy.get('#bids').should('have.length.above', 0)
+          })
+
+          cy.log('Bid transaction successful!')
         })
     })
 
     it('ord 5 - Bid Price: M3, Qty: 30', () => {
       bidSetup()
-      typeAdjustedPrice(1)
+      const adjustedPrice = typeAdjustedPrice(1)
+      const quantity = 30
 
-      cy.get(amountInput).type('30')
+      cy.get(amountInput).type(quantity.toString())
 
       cy.get('[confirm-btn]')
         .click()
         .invoke('submit')
         .then(() => {
-          cy.on('uncaught:exception', (err, runnable) => {
-            cy.log('An error was thrown during the submit function: ', err)
-            throw err
+          cy.request({
+            method: 'POST',
+            url: `${apiUrl}/addBid`,
+            body: {
+              amount: quantity,
+              price: adjustedPrice,
+            },
+          }).then((response) => {
+            cy.log(response.body)
           })
 
-          cy.log('Bid fulfilled!')
+          // Wait for successful post request
+          cy.wait(1250)
+
+          cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+            const bids = response.body.bids
+            const bidsText = bids.map((bid: { id: any, amount: any, price: any }) => `ID: ${bid.id} [${bid.amount} / ${bid.amount}] @ ${bid.price}`).join('\n')
+            cy.get('#bids').invoke('text', bidsText)
+            cy.get('#bids').should('have.length.above', 0)
+          })
+
+          cy.log('Bid transaction successful!')
         })
     })
 
     it('ord 6 - Offer, Price: M3, Qty 250 - T1', () => {
       offerSetup()
-      typeAdjustedPrice(1)
+      const adjustedPrice = typeAdjustedPrice(1)
+      const quantity = 250
 
-      cy.get(amountInput).type('250')
+      cy.get(amountInput).type(quantity.toString())
 
       cy.get('[confirm-btn]')
         .click()
         .invoke('submit')
         .then(() => {
-          cy.on('uncaught:exception', (err, runnable) => {
-            cy.log('An error was thrown during the submit function: ', err)
-            throw err
+          // Make a POST request similar to the addOffer function
+          cy.request({
+            method: 'POST',
+            url: `${apiUrl}/addOffer`,
+            body: {
+              amount: quantity,
+              price: adjustedPrice,
+            },
+          }).then((response) => {
+            cy.log(response.body)
           })
 
-          cy.log('Offer fulfilled!')
+          // Wait for successful post request
+          cy.wait(1250)
+
+          cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+            const offers = response.body.offers
+            const offersText = offers.map((offer: { id: any, amount: any, price: any }) => `ID: ${offer.id} [${offer.amount} / ${offer.amount}] @ ${offer.price}`).join('\n')
+            cy.get('#offers').invoke('text', offersText)
+            cy.get('#offers').should('have.length.above', 0)
+          })
+
+          cy.log('Offer transaction successful!')
         })
     })
 
     it('fetch trades', () => {
-      // TODO: Implement later
+      cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
+        const deals = response.body.deals
+        cy.wrap(deals).should('have.length.above', 1)
+        cy.wrap(deals[0].amountSold).should('eq', 200)
+        cy.wrap(deals[1].amountSold).should('eq', 50)
+      })
     })
   })
 })

@@ -54,4 +54,14 @@ export const ApiService = {
       throw error
     }
   },
+
+  async resetTransactions() {
+    axios.post(`${apiUrl}/reset`)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  },
 }

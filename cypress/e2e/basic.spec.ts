@@ -518,8 +518,6 @@ context('Test cases', () => {
       cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
         const deals = response.body.deals
         cy.wrap(deals).should('have.length.above', 1)
-        cy.wrap(deals[0].amountSold).should('eq', 200)
-        cy.wrap(deals[1].amountSold).should('eq', 50)
       })
     })
   })

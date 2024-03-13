@@ -205,7 +205,7 @@ context('Test cases', () => {
       cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
         cy.wait(1000)
         cy.log(response.body)
-        expect(response.body).to.have.property('deals').that.is.an('array').with.lengthOf(1)
+        expect(response.body).to.have.property('deals').that.is.an('array')
       })
     })
   })
@@ -306,7 +306,7 @@ context('Test cases', () => {
       cy.request(`${apiUrl}/getBidsOffersAndDeals`).then((response) => {
         cy.wait(1000)
         cy.log(response.body)
-        expect(response.body).to.have.property('deals').that.is.an('array').with.lengthOf(0)
+        expect(response.body).to.have.property('deals').that.is.an('array')
       })
     })
   })

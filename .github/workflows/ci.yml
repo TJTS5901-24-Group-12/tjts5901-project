@@ -109,8 +109,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Install wait-on
+        run: npx pnpm add -D wait-on
+
       - name: Start server
-        run: npx vite --port 3333 --open &
+        run: npx vite --port 3333 --open & sleep 10
 
       - name: Run cypress tests
         uses: cypress-io/github-action@v4

@@ -43,6 +43,7 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue-macros/volar": "^0.18.11",
     "@vue/test-utils": "^2.4.4",
+    "chai": "^5.1.0",
     "critters": "^0.0.20",
     "cross-env": "^7.0.3",
     "cypress": "^13.6.5",

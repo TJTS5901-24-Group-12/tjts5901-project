@@ -24,7 +24,7 @@ async function validateTransaction(amount: number, price: number) {
 
   // Validate that price cannot go higher or lower than max price
   if (!inputPrice || inputPrice < minPrice || inputPrice > maxPrice)
-    throw new Error('Price must be +-10% of the last traded price!')
+    throw new Error(`Price must be +-10% of the last traded price! - inputPrice: ${inputPrice}, minPrice: ${minPrice}, maxPrice: ${maxPrice}`)
 
   return true
 }

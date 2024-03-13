@@ -109,6 +109,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Add chai
+        run: pnpm add chai
+
       - name: Install wait-on
         run: npx pnpm add -D wait-on
 

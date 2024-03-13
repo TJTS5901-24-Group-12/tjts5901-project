@@ -150,12 +150,13 @@ const { t } = useI18n()
     </fieldset>
 
     <div>
-      <button style="width: 15%" m-3 text-sm cancel-btn @click="cancel">
+      <button style="width: 15%" m-3 text-sm cancel-btn :disabled="false" @click="cancel">
         {{ t('button.cancel') }}
       </button>
 
       <button
         style="width: 15%" m-3 text-sm confirm-btn
+        :disabled="false"
         @click="submit"
       >
         {{ t('button.confirm') }}

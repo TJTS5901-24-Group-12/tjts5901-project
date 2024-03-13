@@ -1,5 +1,5 @@
 {
-  "\u0000C:/MAISTERI/koodit/tjts5901-project/node_modules/nprogress/nprogress.js?commonjs-module": [],
+  "\u0000C:/MAISTERI/koodit/tjts5901-project/node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js?commonjs-module": [],
   "\u0000commonjsHelpers.js": [],
   "\u0000plugin-vue:export-helper": [
     "/assets/_plugin-vue_export-helper-DlAUqK2U.js"
@@ -8,7 +8,7 @@
   "\u0000vite/modulepreload-polyfill.js": [],
   "\u0000vite/preload-helper.js": [],
   "../../../@vite-plugin-pwa/virtual:pwa-register": [
-    "/assets/virtual_pwa-register-BE4OhIMi.js"
+    "/assets/virtual_pwa-register-DJwkNC8A.js"
   ],
   "../../../__uno.css": [],
   "assets/app-!~{001}~.js-unocss-hash.css": [],
@@ -67,175 +67,218 @@
   "locales/zh-CN.yml": [
     "/assets/zh-CN-CxHQXvmj.js"
   ],
-  "node_modules/@intlify/core-base/dist/core-base.mjs": [],
-  "node_modules/@intlify/message-compiler/dist/message-compiler.esm-browser.js": [],
-  "node_modules/@intlify/shared/dist/shared.mjs": [],
-  "node_modules/@unhead/dom/dist/index.mjs": [],
-  "node_modules/@unhead/shared/dist/index.mjs": [],
-  "node_modules/@unhead/vue/dist/shared/vue.cf295fb1.mjs": [],
-  "node_modules/@unhead/vue/dist/shared/vue.f36acd1f.mjs": [],
-  "node_modules/@unocss/reset/tailwind.css": [],
-  "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [],
-  "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [],
-  "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [],
-  "node_modules/@vue/shared/dist/shared.esm-bundler.js": [],
-  "node_modules/@vueuse/core/index.mjs": [],
-  "node_modules/@vueuse/shared/index.mjs": [],
-  "node_modules/axios/lib/adapters/adapters.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/@intlify+core-base@9.10.1/node_modules/@intlify/core-base/dist/core-base.mjs": [],
+  "node_modules/.pnpm/@intlify+message-compiler@9.10.1/node_modules/@intlify/message-compiler/dist/message-compiler.esm-browser.js": [],
+  "node_modules/.pnpm/@intlify+shared@9.10.1/node_modules/@intlify/shared/dist/shared.mjs": [],
+  "node_modules/.pnpm/@unhead+dom@1.8.13/node_modules/@unhead/dom/dist/index.mjs": [],
+  "node_modules/.pnpm/@unhead+shared@1.8.13/node_modules/@unhead/shared/dist/index.mjs": [],
+  "node_modules/.pnpm/@unhead+vue@1.8.13_vue@3.4.21/node_modules/@unhead/vue/dist/shared/vue.cf295fb1.mjs": [],
+  "node_modules/.pnpm/@unhead+vue@1.8.13_vue@3.4.21/node_modules/@unhead/vue/dist/shared/vue.f36acd1f.mjs": [],
+  "node_modules/.pnpm/@unocss+reset@0.58.5/node_modules/@unocss/reset/tailwind.css": [],
+  "node_modules/.pnpm/@vue+reactivity@3.4.21/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [],
+  "node_modules/.pnpm/@vue+runtime-core@3.4.21/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [],
+  "node_modules/.pnpm/@vue+runtime-dom@3.4.21/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [],
+  "node_modules/.pnpm/@vue+shared@3.4.21/node_modules/@vue/shared/dist/shared.esm-bundler.js": [],
+  "node_modules/.pnpm/@vueuse+core@10.9.0_vue@3.4.21/node_modules/@vueuse/core/index.mjs": [],
+  "node_modules/.pnpm/@vueuse+shared@10.9.0_vue@3.4.21/node_modules/@vueuse/shared/index.mjs": [],
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/adapters/adapters.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/adapters/xhr.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/adapters/xhr.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/axios.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/axios.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/cancel/CancelToken.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/cancel/CancelToken.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/cancel/CanceledError.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/cancel/CanceledError.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/cancel/isCancel.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/cancel/isCancel.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/core/Axios.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/Axios.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/core/AxiosError.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/AxiosError.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/core/AxiosHeaders.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/AxiosHeaders.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/core/InterceptorManager.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/InterceptorManager.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/core/buildFullPath.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/buildFullPath.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/core/dispatchRequest.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/dispatchRequest.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/core/mergeConfig.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/mergeConfig.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/core/settle.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/settle.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/core/transformData.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/transformData.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/defaults/index.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/defaults/index.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/defaults/transitional.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/defaults/transitional.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/env/data.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/env/data.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/AxiosURLSearchParams.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/AxiosURLSearchParams.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/HttpStatusCode.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/HttpStatusCode.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/bind.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/bind.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/buildURL.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/buildURL.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/combineURLs.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/combineURLs.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/cookies.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/cookies.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/formDataToJSON.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/formDataToJSON.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/isAbsoluteURL.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/isAbsoluteURL.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/isAxiosError.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/isAxiosError.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/isURLSameOrigin.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/isURLSameOrigin.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/null.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/null.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/parseHeaders.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/parseHeaders.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/parseProtocol.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/parseProtocol.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/speedometer.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/speedometer.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/spread.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/spread.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/toFormData.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/toFormData.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/toURLEncodedForm.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/toURLEncodedForm.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/helpers/validator.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/validator.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/platform/browser/classes/Blob.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/platform/browser/classes/Blob.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/platform/browser/classes/FormData.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/platform/browser/classes/FormData.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/platform/browser/classes/URLSearchParams.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/platform/browser/classes/URLSearchParams.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/platform/browser/index.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/platform/browser/index.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/platform/common/utils.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/platform/common/utils.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/platform/index.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/platform/index.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/axios/lib/utils.js": [
-    "/assets/index-DUHatW-F.js"
+  "node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/utils.js": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
-  "node_modules/hookable/dist/index.mjs": [],
-  "node_modules/nprogress/nprogress.js": [],
-  "node_modules/pinia/dist/pinia.mjs": [],
-  "node_modules/unhead/dist/index.mjs": [],
-  "node_modules/vite-ssg/dist/index.mjs": [],
-  "node_modules/vite-ssg/dist/shared/vite-ssg.5912142e.mjs": [],
-  "node_modules/vite-ssg/dist/shared/vite-ssg.a009fbf1.mjs": [],
-  "node_modules/vue-demi/lib/index.mjs": [],
-  "node_modules/vue-i18n/dist/vue-i18n.runtime.mjs": [],
-  "node_modules/vue-router/dist/vue-router.mjs": [],
-  "node_modules/workbox-window/build/workbox-window.prod.es5.mjs": [
+  "node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs": [],
+  "node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js": [],
+  "node_modules/.pnpm/pinia@2.1.7_typescript@5.4.2_vue@3.4.21/node_modules/pinia/dist/pinia.mjs": [],
+  "node_modules/.pnpm/unhead@1.8.13/node_modules/unhead/dist/index.mjs": [],
+  "node_modules/.pnpm/vite-ssg@0.23.6_critters@0.0.20_vite@5.1.6_vue-router@4.3.0_vue@3.4.21/node_modules/vite-ssg/dist/index.mjs": [],
+  "node_modules/.pnpm/vite-ssg@0.23.6_critters@0.0.20_vite@5.1.6_vue-router@4.3.0_vue@3.4.21/node_modules/vite-ssg/dist/shared/vite-ssg.5912142e.mjs": [],
+  "node_modules/.pnpm/vite-ssg@0.23.6_critters@0.0.20_vite@5.1.6_vue-router@4.3.0_vue@3.4.21/node_modules/vite-ssg/dist/shared/vite-ssg.a009fbf1.mjs": [],
+  "node_modules/.pnpm/vue-demi@0.14.7_vue@3.4.21/node_modules/vue-demi/lib/index.mjs": [],
+  "node_modules/.pnpm/vue-i18n@9.10.1_vue@3.4.21/node_modules/vue-i18n/dist/vue-i18n.runtime.mjs": [],
+  "node_modules/.pnpm/vue-router@4.3.0_vue@3.4.21/node_modules/vue-router/dist/vue-router.mjs": [],
+  "node_modules/.pnpm/workbox-window@7.0.0/node_modules/workbox-window/build/workbox-window.prod.es5.mjs": [
     "/assets/workbox-window.prod.es5-DFjpnwFp.js"
   ],
   "src/App.vue?vue&type=script&setup=true&lang.ts": [],
   "src/composables/dark.ts": [],
   "src/layouts/404.vue": [
-    "/assets/404-BgBTCbmG.js"
+    "/assets/404-BOGrbA2u.js"
   ],
   "src/layouts/404.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/404-BgBTCbmG.js"
+    "/assets/404-BOGrbA2u.js"
   ],
   "src/layouts/default.vue": [
-    "/assets/default-C1CazQfL.js"
+    "/assets/default-D7U2QcRY.js"
   ],
   "src/layouts/home.vue": [
-    "/assets/home-DVeHKuRj.js"
+    "/assets/home-B2y8RBRC.js"
   ],
   "src/main.ts": [],
   "src/modules/i18n.ts": [],
@@ -243,34 +286,42 @@
   "src/modules/pinia.ts": [],
   "src/modules/pwa.ts": [],
   "src/pages/README.md": [
-    "/assets/README-BUIQBYEp.js"
+    "/assets/README-vq7svNp8.js"
   ],
   "src/pages/[...all].vue": [
-    "/assets/_...all_-Dt_bH2nf.js"
+    "/assets/_...all_-BQHcdnvk.js"
   ],
   "src/pages/[...all].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_...all_-Dt_bH2nf.js"
+    "/assets/_...all_-BQHcdnvk.js"
   ],
   "src/pages/about.md": [
-    "/assets/about-DMiECsc3.js"
+    "/assets/about-DYvDupvT.js"
   ],
   "src/pages/hi/[name].vue": [
-    "/assets/_name_-Dw7Hv5jz.js"
+    "/assets/_name_-BuN2aVuh.js"
   ],
   "src/pages/hi/[name].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_name_-Dw7Hv5jz.js"
+    "/assets/_name_-BuN2aVuh.js"
   ],
   "src/pages/index.vue": [
-    "/assets/index-DUHatW-F.js"
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
   "src/pages/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index-DUHatW-F.js"
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
+  ],
+  "src/pages/index.vue?vue&type=style&index=0&lang.css": [
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
   "src/server/app.ts": [
-    "/assets/index-DUHatW-F.js"
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
   "src/services/ApiService.ts": [
-    "/assets/index-DUHatW-F.js"
+    "/assets/index-CzSuYSd-.js",
+    "/assets/index-h8DErrED.css"
   ],
   "src/styles/main.css": [],
   "virtual:/vue-router/auto/route-block": [

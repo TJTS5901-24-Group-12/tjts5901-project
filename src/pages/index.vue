@@ -145,17 +145,18 @@ const { t } = useI18n()
       </div>
 
       <p mb-2 mt-4>
-        <em text-sm>Total: {{ amount && price ? amount * price : 0 }} USD</em>
+        <em text-sm>Total: {{ amount && price ? (amount * price)?.toFixed(2) : 0 }} USD</em>
       </p>
     </fieldset>
 
     <div>
-      <button style="width: 15%" m-3 text-sm cancel-btn @click="cancel">
+      <button style="width: 15%" m-3 text-sm cancel-btn :disabled="false" @click="cancel">
         {{ t('button.cancel') }}
       </button>
 
       <button
-        style="width: 15%" m-3 text-sm confirm-btn :disabled="!price || !amount"
+        style="width: 15%" m-3 text-sm confirm-btn
+        :disabled="false"
         @click="submit"
       >
         {{ t('button.confirm') }}
@@ -163,31 +164,45 @@ const { t } = useI18n()
     </div>
 
     <!-- Mock data for bids and offers to show on UI -->
-    <div v-if="bidsOffersAndDealsData" class="flex-column m-auto mt-10 w-150 flex justify-center">
+    <div v-if="bidsOffersAndDealsData" class="flex-column m-auto mb-4 mt-8 w-150 flex justify-center">
       <div>
         <b class="color-bluegray-800">Bids</b>
-        <ul v-if="bidsOffersAndDealsData.bids">
+        <ul v-if="bidsOffersAndDealsData.bids" id="bids">
           <li v-for="bidItem in bidsOffersAndDealsData.bids" :key="bidItem.id" :class="{ grayedout: bidItem.amountLeft === 0 }">
-            ID: {{ bidItem.id }} [{{ bidItem.amountLeft }} / {{ bidItem.amount }}] @ {{ bidItem.price }}
+            ID: {{ bidItem.id + 1 }} [{{ bidItem.amountLeft }} / {{ bidItem.amount }}] @ {{ bidItem.price?.toFixed(2) }}
           </li>
         </ul>
       </div>
       <div class="ml-12">
         <b class="color-bluegray-800">Offers</b>
-        <ul v-if="bidsOffersAndDealsData.offers">
+        <ul v-if="bidsOffersAndDealsData.offers" id="offers">
           <li v-for="offerItem in bidsOffersAndDealsData.offers" :key="offerItem.id" :class="{ grayedout: offerItem.amountLeft === 0 }">
-            ID: {{ offerItem.id }} [{{ offerItem.amountLeft }} / {{ offerItem.amount }}] @ {{ offerItem.price }}
+            ID: {{ offerItem.id + 1 }} [{{ offerItem.amountLeft }} / {{ offerItem.amount }}] @ {{ offerItem.price?.toFixed(2) }}
           </li>
         </ul>
       </div>
-      <div class="ml-12">
-        <b class="color-bluegray-800">Deals</b>
-        <ul v-if="bidsOffersAndDealsData.deals">
-          <li v-for="dealItem in bidsOffersAndDealsData.deals" :key="dealItem.id">
-            {{ dealItem.offerId }} -> {{ dealItem.bidId }} {{ dealItem.amountSold }} @ {{ dealItem.price }} At time: {{ dealItem.timeOfDeal }}
-          </li>
-        </ul>
-      </div>
+    </div>
+
+    <div v-if="bidsOffersAndDealsData">
+      <b class="table-title color-bluegray-800">Trades</b>
+    </div>
+    <div v-if="bidsOffersAndDealsData" class="deals-arr m-auto mt-4 w-150 flex justify-center">
+      <table v-if="bidsOffersAndDealsData.deals" class="styled-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="dealItem in bidsOffersAndDealsData.deals" :key="dealItem.id">
+            <td>{{ dealItem.timeOfDeal }}</td>
+            <td>{{ dealItem.price }}</td>
+            <td>{{ dealItem.amountSold }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -195,6 +210,39 @@ const { t } = useI18n()
 <style>
 .grayedout {
   opacity: 0.5;
+}
+
+.table-title {
+  font-size: 1.15em;
+}
+
+.styled-table {
+  width: 80%;
+  font-size: 0.9em;
+}
+
+.styled-table thead tr {
+  background-color: #555a59;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 1px solid #555a59;
 }
 </style>
 

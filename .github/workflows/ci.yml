@@ -103,15 +103,18 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: pnpm
 
-      - name: Install dependencies
-        run: pnpm install
-
       - name: Cypress PNPM Patch
         run: cp pnpm-lock.yaml package-lock.json
 
-      - name: Cypress
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Start server
+        run: npx vite --port 3333 --open &
+
+      - name: Run cypress tests
         uses: cypress-io/github-action@v4
         with:
           install-command: echo
-          build: pnpm run build
-          start: npx vite --port 3333 --open
+          start: echo "Server already started"
+          wait-on: 'http://localhost:3333'

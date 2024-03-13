@@ -105,6 +105,7 @@ jobs:
 
       - run: pnpm install
       - run: pnpm add chai
+      - run: npx cypress install
 
       - name: Cypress PNPM Patch
         run: cp pnpm-lock.yaml package-lock.json

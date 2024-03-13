@@ -50,6 +50,10 @@ context('Test cases', () => {
 
     cy.contains('Price')
       .should('exist')
+
+    cy.get('[confirm-btn]').then(($btn) => {
+      $btn.prop('disabled', false)
+    })
   })
 
   describe('verify input prices are validated based on latest market data', () => {

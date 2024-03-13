@@ -6,6 +6,9 @@ on:
     types:
       - completed
 
+  push:
+    branches: prod
+
 jobs:
   trigger-release:
     runs-on: ubuntu-latest

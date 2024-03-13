@@ -6,6 +6,7 @@ export default defineConfig({
     baseUrl: 'http://localhost:3333',
     chromeWebSecurity: false,
     specPattern: 'cypress/e2e/**/*.spec.*',
+    defaultCommandTimeout: 30000,
     supportFile: false,
     setupNodeEvents(on) {
       on('file:preprocessor', vitePreprocessor())

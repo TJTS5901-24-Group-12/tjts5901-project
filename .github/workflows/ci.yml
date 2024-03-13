@@ -95,7 +95,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: TJTS5901-24-Group-12/tjts5901-project
-          ref: main
 
       - name: Use Node.js
         uses: actions/setup-node@v3
